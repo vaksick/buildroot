@@ -137,4 +137,13 @@ endef
 
 LIBCAMERA_POST_BUILD_HOOKS += LIBCAMERA_BUILD_STRIP_IPA_SO
 
+define LIBCAMERA_FIX_PATH_INCLUDE
+	if [ -d $(TARGET_DIR)/usr/include/libcamera/libcamera ]; then \
+		rsync -a --remove-source-files $(TARGET_DIR)/usr/include/libcamera/libcamera/* $(TARGET_DIR)/usr/include/libcamera/ && \
+		rm -rf $(TARGET_DIR)/usr/include/libcamera/libcamera; \
+	fi
+endef
+
+LIBCAMERA_POST_INSTALL_TARGET_HOOKS += LIBCAMERA_FIX_PATH_INCLUDE
+
 $(eval $(meson-package))
