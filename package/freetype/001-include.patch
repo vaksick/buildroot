@@ -1,0 +1,31 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8dbca01..500d17e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -484,7 +484,7 @@ endif ()
+ target_include_directories(
+   freetype
+     PUBLIC
+-      $<INSTALL_INTERFACE:include/freetype2>
++      $<INSTALL_INTERFACE:include>
+       $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
+       $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+     PRIVATE
+@@ -561,7 +561,7 @@ if (NOT SKIP_INSTALL_HEADERS AND NOT SKIP_INSTALL_ALL)
+   install(
+     # Note the trailing slash in the argument to `DIRECTORY'!
+     DIRECTORY ${PROJECT_SOURCE_DIR}/include/
+-      DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freetype2
++      DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+       COMPONENT headers
+       PATTERN "internal" EXCLUDE
+       PATTERN "ftconfig.h" EXCLUDE
+@@ -569,7 +569,7 @@ if (NOT SKIP_INSTALL_HEADERS AND NOT SKIP_INSTALL_ALL)
+   install(
+     FILES ${PROJECT_BINARY_DIR}/include/freetype/config/ftconfig.h
+           ${PROJECT_BINARY_DIR}/include/freetype/config/ftoption.h
+-      DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freetype2/freetype/config
++      DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freetype/config
+       COMPONENT headers)
+ endif ()
+ 

@@ -1,0 +1,13 @@
+diff --git a/cmake/OpenCVCompilerOptimizations.cmake b/cmake/OpenCVCompilerOptimizations.cmake
+index ff0e40c..55ef304 100644
+--- a/cmake/OpenCVCompilerOptimizations.cmake
++++ b/cmake/OpenCVCompilerOptimizations.cmake
+@@ -604,7 +604,7 @@ endif()
+ 
+ foreach(OPT ${CPU_BASELINE_REQUIRE})
+   if(NOT ";${CPU_BASELINE_FINAL};" MATCHES ";${OPT};")
+-    message(SEND_ERROR "Required baseline optimization is not supported: ${OPT} (CPU_BASELINE_REQUIRE=${CPU_BASELINE_REQUIRE})")
++    message(STATUS "Required baseline optimization is not supported: ${OPT} (CPU_BASELINE_REQUIRE=${CPU_BASELINE_REQUIRE})")
+   endif()
+ endforeach()
+ 
